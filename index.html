@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Angular To-Do List</title>
+    <link href='https://fonts.googleapis.com/css?family=Slabo+27px|Lobster|Paytone+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body ng-controller="toDoCtrl">
+    <div class="container">
+        <h1>You've got <span class="number">{{getTotalTodos()}}</span> {{things()}} to do.</h1>
+        <ul>
+            <li ng-repeat="todo in todos">
+                <input class="checkbox" type="checkbox" ng-model="todo.done" ng-click="checkTodo()" />
+                <span class="done-{{todo.done}}">{{todo.text}}</span>
+            </li>
+        </ul>
+        <form>
+            <input class="user-input" type="text" placeholder="I need to . . ." ng-model="formTodoText" required/>
+            <button class="add-button" ng-click="addTodo()">
+                <h3>Add Task</h3>
+            </button>
+        </form>
+        <button class="clear-button" ng-click="clearCompleted()">
+            <h3>Delete Completed Task(s)</h3>
+        </button>
+    </div>
+    <footer>
+        <h6>Check out my Github to see my other projects</h6>
+        <a href="https://github.com/mcooperstein"><img src="https://github.com/favicon.ico" /></a>
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

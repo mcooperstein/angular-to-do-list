@@ -98,7 +98,8 @@ li {
     text-align: center;
     font-size: 2em;
     font-family: 'Slabo 27px', serif;
-    border: 1px solid black;
+    border-top: 4px solid #F4304D;
+    border-bottom: 4px solid #F4304D;
 }
 
 button {
@@ -112,13 +113,25 @@ button {
     float: right;
     font-size: 2em;
     height: 2em;
-    border: 1px solid black;
+    border-top: 4px solid #F4304D;
+    border-bottom: 4px solid #F4304D;
     word-spacing: 0.25em;
 }
 
-.clear-button {
+#clear-button1 {
     background-color: #1FFCD8;
-    border: 1px solid black;
+    border-right: 1px solid black;
+    width: 50%;
+    float: left;
+    height: 2.5em;
+    font-size: 1.5em;
+    text-align: center;
+    word-spacing: 0.25em;
+}
+
+#clear-button2 {
+    background-color: #1FFCD8;
+    border-left: 1px solid black;
     width: 50%;
     float: left;
     height: 2.5em;

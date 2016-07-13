@@ -5,35 +5,49 @@
     <meta charset="UTF-8">
     <title>Angular To-Do List</title>
     <link href='https://fonts.googleapis.com/css?family=Slabo+27px|Lobster|Paytone+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body ng-controller="toDoCtrl">
+<body data-ng-controller="toDoCtrl">
+    <header>
+        <h1>Angular To-Do List</h1>
+        <h2><span class="smaller">(using local storage)</span></h2>
+    </header>
     <div class="container">
-        <h1>You've got <span class="number">{{getTotalTodos()}}</span> {{things()}} to do.</h1>
+        <div class="sub-header">
+            <h2>You've got <span class="number">{{getTotalTodos()}}</span> {{things()}} to do on {{today | date}}.</h2>
+        </div>
         <ul>
-            <li ng-repeat="todo in todos">
-                <input class="checkbox" type="checkbox" ng-model="todo.done" ng-click="checkTodo()" />
+            <li data-ng-repeat="todo in todos track by $index">
+                <input class="checkbox" type="checkbox" data-ng-model="todo.done" ng-click="checkTodo()" />
                 <span class="done-{{todo.done}}">{{todo.text}}</span>
             </li>
         </ul>
         <form>
-            <input class="user-input" type="text" placeholder="I need to . . ." ng-model="formTodoText" required/>
-            <button class="add-button" ng-click="addTodo()">
+            <input class="user-input" type="text" placeholder="I need to . . ." data-ng-model="formTodoText" />
+            <button class="add-button" data-ng-click="addTodo()">
                 <h3>Add Task</h3>
             </button>
         </form>
-        <button class="clear-button" ng-click="clearCompleted()">
+        <button class="clear-button" data-ng-click="clearCompleted()">
             <h3>Delete Completed Task(s)</h3>
+        </button>
+        <button class="clear-button" data-ng-click="clearAll()">
+            <h3>Start a New List</h3>
         </button>
     </div>
     <footer>
-        <h6>Check out my Github to see my other projects</h6>
-        <a href="https://github.com/mcooperstein"><img src="https://github.com/favicon.ico" /></a>
+        <a href="https://github.com/mcooperstein/angular-to-do-list" target="_blank">
+            <h6>Check out the source code on my Github<br>
+            <i class="fa fa-github"></i>
+            </h6>
+        </a>
     </footer>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
     <script src="app.js"></script>
 </body>
 

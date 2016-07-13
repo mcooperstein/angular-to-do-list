@@ -1,8 +1,23 @@
-var app = angular.module('myApp', []);
+var app = angular.module('myApp', ['ngStorage']);
 
-app.controller('toDoCtrl', function ($scope) {
+app.controller('toDoCtrl', function ($scope /*, $localStorage*/ ) {
 
-    $scope.todos = [
+    $scope.today = new Date();
+
+    /*$scope.$storage = $localStorage.$default([
+        {
+            text: "Clean my Room",
+            done: false
+        },
+        {
+            text: "Do my Homework",
+            done: false
+        }
+    ]);
+    console.log($scope.$storage);*/
+    $scope.saved = localStorage.getItem('todos');
+
+    $scope.todos = (localStorage.getItem('todos') !== null) ? JSON.parse($scope.saved) : [
         {
             text: "Clean my Room",
             done: false
@@ -12,6 +27,7 @@ app.controller('toDoCtrl', function ($scope) {
             done: false
         }
     ];
+    localStorage.setItem('todos', JSON.stringify($scope.todos));
 
     $scope.things = function () {
         if ($scope.todos.length == 1) {
@@ -35,6 +51,8 @@ app.controller('toDoCtrl', function ($scope) {
             });
         }
         $scope.formTodoText = "";
+        //clear the input after adding
+        localStorage.setItem('todos', JSON.stringify($scope.todos));
     };
 
     $scope.checkTodo = function (todo) {
@@ -51,6 +69,14 @@ app.controller('toDoCtrl', function ($scope) {
                 $scope.todos.push(todo);
             }
         });
+        localStorage.setItem('todos', JSON.stringify($scope.todos));
+    };
+
+    $scope.clearAll = function () {
+        if (confirm("Are you sure you want to delete this list?") == true) {
+            localStorage.clear();
+            $scope.todos = [];
+        }
     };
 
 

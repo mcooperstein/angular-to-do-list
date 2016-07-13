@@ -60,7 +60,7 @@ h2 {
 }
 
 ul {
-    background-color: #637066;
+    background-color: #F4304D;
 }
 
 li {
@@ -106,7 +106,8 @@ button {
 }
 
 .add-button {
-    background-color: #F4304D;
+    background-color: black;
+    color: #F4304D;
     width: 50%;
     float: right;
     font-size: 2em;

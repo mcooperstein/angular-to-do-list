@@ -1,4 +1,5 @@
-var app = angular.module('myApp', ['ngStorage']);
+var app = angular.module('myApp', []);
+//var app = angular.module('myApp', ['ngStorage']);
 
 app.controller('toDoCtrl', function ($scope /*, $localStorage*/ ) {
 

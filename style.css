@@ -100,6 +100,7 @@ li {
     font-family: 'Slabo 27px', serif;
     border-top: 4px solid #F4304D;
     border-bottom: 4px solid #F4304D;
+    border-right: 2px solid #F4304D;
 }
 
 button {
@@ -115,12 +116,14 @@ button {
     height: 2em;
     border-top: 4px solid #F4304D;
     border-bottom: 4px solid #F4304D;
+    border-left: 2px solid #F4304D;
     word-spacing: 0.25em;
 }
 
 #clear-button1 {
     background-color: #1FFCD8;
-    border-right: 1px solid black;
+    border-right: 2px solid #F4304D;
+    border-bottom: 4px solid #F4304D;
     width: 50%;
     float: left;
     height: 2.5em;
@@ -131,7 +134,8 @@ button {
 
 #clear-button2 {
     background-color: #1FFCD8;
-    border-left: 1px solid black;
+    border-left: 2px solid #F4304D;
+    border-bottom: 4px solid #F4304D;
     width: 50%;
     float: left;
     height: 2.5em;

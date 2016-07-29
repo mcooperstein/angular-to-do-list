@@ -1,24 +1,13 @@
-var app = angular.module('myApp', []);
+var app = angular.module("myApp", []);
 //var app = angular.module('myApp', ['ngStorage']);
 
-app.controller('toDoCtrl', function ($scope /*, $localStorage*/ ) {
+app.controller("toDoCtrl", function ($scope /*, $localStorage*/ ) {
 
     $scope.today = new Date();
 
-    /*$scope.$storage = $localStorage.$default([
-        {
-            text: "Clean my Room",
-            done: false
-        },
-        {
-            text: "Do my Homework",
-            done: false
-        }
-    ]);
-    console.log($scope.$storage);*/
-    $scope.saved = localStorage.getItem('todos');
+    $scope.saved = localStorage.getItem("todos");
 
-    $scope.todos = (localStorage.getItem('todos') !== null) ? JSON.parse($scope.saved) : [
+    $scope.todos = (localStorage.getItem("todos") !== null) ? JSON.parse($scope.saved) : [
         {
             text: "Clean my Room",
             done: false
@@ -28,7 +17,7 @@ app.controller('toDoCtrl', function ($scope /*, $localStorage*/ ) {
             done: false
         }
     ];
-    localStorage.setItem('todos', JSON.stringify($scope.todos));
+    localStorage.setItem("todos", JSON.stringify($scope.todos));
 
     $scope.things = function () {
         if ($scope.todos.length == 1) {
@@ -53,7 +42,7 @@ app.controller('toDoCtrl', function ($scope /*, $localStorage*/ ) {
         }
         $scope.formTodoText = "";
         //clear the input after adding
-        localStorage.setItem('todos', JSON.stringify($scope.todos));
+        localStorage.setItem("todos", JSON.stringify($scope.todos));
     };
 
     $scope.checkTodo = function (todo) {
@@ -70,7 +59,7 @@ app.controller('toDoCtrl', function ($scope /*, $localStorage*/ ) {
                 $scope.todos.push(todo);
             }
         });
-        localStorage.setItem('todos', JSON.stringify($scope.todos));
+        localStorage.setItem("todos", JSON.stringify($scope.todos));
     };
 
     $scope.clearAll = function () {
@@ -79,8 +68,4 @@ app.controller('toDoCtrl', function ($scope /*, $localStorage*/ ) {
             $scope.todos = [];
         }
     };
-
-
-
-
 });
